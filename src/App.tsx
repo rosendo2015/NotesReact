@@ -24,7 +24,7 @@ export function App() {
       date: new Date(),
       content
     }
-    const notesArray = [newNote, ...notes]
+    const notesArray:any = [newNote, ...notes]
     setNotes(notesArray)
     localStorage.setItem('notes', JSON.stringify(notesArray))
   }

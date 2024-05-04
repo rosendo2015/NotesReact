@@ -1,13 +1,13 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { X } from 'lucide-react'
-import { ChangeEvent, FormEventHandler, useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 import { toast } from 'sonner'
 
 interface NewNoteCardProps {
   onNoteCreated: (content: string) => void
-  
+
 }
-let speechRecogniton: SpeechRecogniton | null = null
+let speechRecogniton: SpeechRecognition | null = null
 export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
   const [shouldShowOnbording, setShouldShowOnbording] = useState(true)
   const [isRecording, setIsRecording] = useState(false)
@@ -26,7 +26,7 @@ export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
     }
   }
 
-  function handleSaveNote(event: FormEvent<FormEventHandler>) {
+  function handleSaveNote(event: FormEvent<HTMLButtonElement>) {
     event.preventDefault()
 
     if (content === '') {
@@ -53,28 +53,28 @@ export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
     setIsRecording(true)
     setShouldShowOnbording(false)
 
-    const SpeechRecognitonAPI = window.SpeechRecognition || window.webkitSpeechRecognition
+    const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition
 
-    speechRecogniton = new SpeechRecognitonAPI()
+    const speechRecognition = new SpeechRecognitionAPI()
 
-    speechRecogniton.lang = 'pt-BR'
-    speechRecogniton.continuous = true
-    speechRecogniton.maxAlternatives = 1
-    speechRecogniton.interimResults = true
-    speechRecogniton.onresult = (event) => {
+    speechRecognition.lang = 'pt-BR'
+    speechRecognition.continuous = true
+    speechRecognition.maxAlternatives = 1
+    speechRecognition.interimResults = true
+    speechRecognition.onresult = (event) => {
       const transcription = Array.from(event.results).reduce((text, result) => {
         return text.concat(result[0].transcript)
       }, '')
       setContent(transcription)
     }
-    speechRecogniton.onerror = (event) => {
+    speechRecognition.onerror = (event) => {
       console.error(event)
     }
-    speechRecogniton.start()
+    speechRecognition.start()
   }
   function handleStopRecording() {
     setIsRecording(false)
-    if (speechRecognition !== null) {
+    if (speechRecogniton !== null) {
       speechRecogniton.stop()
     }
   }
