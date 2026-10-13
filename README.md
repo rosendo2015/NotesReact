@@ -2,6 +2,10 @@
 
 > Aplicativo de anotações com reconhecimento de voz em tempo real
 
+## Prévia
+
+![Captura da página inicial do pprojeto](public/preview.png)
+
 ## Descrição
 
 NotesReact é um aplicativo web modernizado para criação e gerenciamento de notas, construído com **React**, **TypeScript** e **Vite**. O aplicativo permite criar notas por meio de **reconhecimento de voz** (Web Speech Recognition API) ou digitando manualmente, com armazenamento persistente no `localStorage` do navegador.
@@ -18,21 +22,21 @@ NotesReact é um aplicativo web modernizado para criação e gerenciamento de no
 
 ## Tecnologias Utilizadas
 
-| Tecnologia | Versão | Finalidade |
-|------------|--------|------------|
-| React | ^18.2.0 | Biblioteca de UI |
-| TypeScript | ^5.2.2 | Tipagem estática |
-| Vite | ^5.2.0 | Build tool |
-| Tailwind CSS | ^3.4.3 | Estilização |
-| Radix UI Dialog | ^1.0.5 | Componentes de modal |
-| Sonner | ^1.4.41 | Notificações toast |
-| Lucide React | ^0.372.0 | Ícones |
-| date-fns | ^3.6.0 | Manipulação de datas |
-| gh-pages | ^6.1.1 | Deploy para GitHub Pages |
+| Tecnologia      | Versão   | Finalidade               |
+| --------------- | -------- | ------------------------ |
+| React           | ^18.2.0  | Biblioteca de UI         |
+| TypeScript      | ^5.2.2   | Tipagem estática         |
+| Vite            | ^5.2.0   | Build tool               |
+| Tailwind CSS    | ^3.4.3   | Estilização              |
+| Radix UI Dialog | ^1.0.5   | Componentes de modal     |
+| Sonner          | ^1.4.41  | Notificações toast       |
+| Lucide React    | ^0.372.0 | Ícones                   |
+| date-fns        | ^3.6.0   | Manipulação de datas     |
+| gh-pages        | ^6.1.1   | Deploy para GitHub Pages |
 
 ## Pré-requisitos
 
-- Node.js 18+ 
+- Node.js 18+
 - npm ou yarn
 - Navegador moderno (Chrome, Edge, Firefox, Safari) com suporte à **Web Speech Recognition API**
 
@@ -51,12 +55,12 @@ npm install
 
 ## Scripts Disponíveis
 
-| Comando | Descrição |
-|---------|------------|
-| `npm run dev` | Inicia o servidor de desenvolvimento |
-| `npm run build` | Gera a build de produção |
+| Comando           | Descrição                                |
+| ----------------- | ---------------------------------------- |
+| `npm run dev`     | Inicia o servidor de desenvolvimento     |
+| `npm run build`   | Gera a build de produção                 |
 | `npm run preview` | Visualiza a build de produção localmente |
-| `npm run deploy` | Faz deploy para GitHub Pages |
+| `npm run deploy`  | Faz deploy para GitHub Pages             |
 
 ## Uso
 
@@ -125,7 +129,7 @@ Caso o navegador não suporte a API, uma mensagem de aviso será exibida.
 O reconhecimento de voz está configurado para **Português do Brasil** (`pt-BR`). Para alterar o idioma, modifique a linha no arquivo `NewNoteCard.tsx`:
 
 ```typescript
-recognition.lang = 'pt-BR' // Altere para o idioma desejado
+recognition.lang = "pt-BR"; // Altere para o idioma desejado
 ```
 
 ### Personalização do Design
