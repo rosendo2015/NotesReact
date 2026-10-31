@@ -52,7 +52,6 @@ cd NotesReact
 # Instalar dependências
 npm install
 ```
-
 ## Scripts Disponíveis
 
 | Comando           | Descrição                                |
